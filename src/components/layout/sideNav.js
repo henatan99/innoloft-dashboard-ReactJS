@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './index.module.sass';
 
 const SideNav = () => (
-  <nav>
+  <nav className={styles.side_nav}>
     <ul>
       <li>
         <Link to="/">
