@@ -1,3 +1,3 @@
 module.exports = {
-    google_cloud_api_key: '',
+    APP_ID: 1,
 }

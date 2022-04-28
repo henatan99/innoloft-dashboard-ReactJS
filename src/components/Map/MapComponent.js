@@ -14,8 +14,8 @@ const MapComponent = (props) => {
 }
 
 const mapStyles = {
-    width: '30%',
-    height: '30%',
+    width: '25%',
+    height: '50%',
 };
 
 export default GoogleApiWrapper({

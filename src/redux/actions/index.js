@@ -1,10 +1,8 @@
 import * as Axios from 'axios';
 
-import { PRODUCT_SUCCESS, PRODUCT_FAILURE, PRODUCT_REQUEST } from './types';
+import { PRODUCT_SUCCESS, PRODUCT_FAILURE, PRODUCT_REQUEST, SET_PRODUCT } from './types';
 
-const fetchProduct = () => async (dispatch) => {
-  const baseURL = 'https://api-test.innoloft.com';
-  console.log('baseURL', baseURL)
+export const fetchProduct = () => async (dispatch) => {
   dispatch({
     type: PRODUCT_REQUEST,
   });
@@ -15,5 +13,17 @@ const fetchProduct = () => async (dispatch) => {
     dispatch({ type: PRODUCT_FAILURE, payload: error.message });
   }
 };
+
+export const setProduct = (product) => async (dispatch) => {
+  try {
+    const { data } = await Axios.put(
+      `/product/6781`,
+      { product }
+    );
+    dispatch({ type: SET_PRODUCT, payload: data });
+  } catch (error) {
+    dispatch({ type: PRODUCT_FAILURE, payload: error.message });
+  }
+}
 
 export default fetchProduct;
