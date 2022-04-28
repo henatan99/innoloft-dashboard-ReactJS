@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import * as Axios from 'axios';
 import Header from './header';
 import styles from './index.module.sass';
 import SideNav from './sideNav';
-
+import { useDispatch } from 'react-redux';
+import { fetchConfig } from '../../redux/actions';
 import * as env from '../../.env.js'
 
 const Layout = (props) => {
-  const [state, setState] = useState({});
+  const dispatch = useDispatch();
   const appId = env.APP_ID;
- 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await Axios.get(`/configuration/${appId}`);
-      setState({config: data});
-    }
 
-    fetchData()
-  }, []);
-  
+  useEffect(() => {
+    dispatch(fetchConfig(appId));
+  }, [dispatch]);
+
   return (
     <div className={styles.layout}>
       <Header />
@@ -28,6 +24,6 @@ const Layout = (props) => {
       </div>
     </div>
   );
-}
+} 
 
 export default Layout;

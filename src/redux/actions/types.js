@@ -2,4 +2,4 @@ export const PRODUCT_REQUEST = 'PRODUCT_REQUEST';
 export const PRODUCT_SUCCESS = 'PRODUCT_SUCCESS';
 export const PRODUCT_FAILURE = 'PRODUCT_FAILURE';
 export const SET_PRODUCT = 'SET_PRODUCT';
-
+export const SET_CONFIG = 'SET_CONFIG';

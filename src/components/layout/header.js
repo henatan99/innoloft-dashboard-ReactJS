@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './index.module.sass';
 
 const logo = (
@@ -22,10 +23,19 @@ const logo = (
   </svg>
 );
 
-const Header = () => (
-  <div className={styles.header}>
-    {logo}
-  </div>
-);
+const Header = () => {
+  const fetchedConfig = useSelector((state) => state.configReducer);
+  const headerStyle = {
+    backgroundColor: fetchedConfig.config.mainColor,
+  }
+
+  return (
+    <div className={styles.header} style={headerStyle}>
+      <img src={fetchedConfig.config.logo} className={styles.logo_box} />
+      {/* {logo} */}
+    </div>
+  );
+}
+
 
 export default Header;

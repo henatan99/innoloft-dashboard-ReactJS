@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import fetchProduct from '../../redux/actions';
+import { fetchProduct } from '../../redux/actions';
 import MapComponent from '../Map/MapComponent';
 import Attributes from './attributes';
 import UserInfo from './userInfo';
@@ -9,10 +9,12 @@ import styles from './index.module.sass';
 
 const Product = () => {
   const dispatch = useDispatch();
-  const fetchedProduct = useSelector((state) => state.productReducer)
+  const fetchedProduct = useSelector((state) => state.productReducer);
+  const fetchedConfig = useSelector((state) => state.configReducer)
   const { product, loading, error } = fetchedProduct;
   const [contentType, setContentType] = useState('description');
 
+  console.log('fetched config', fetchedConfig)
   useEffect(() => {
     dispatch(fetchProduct());
   }, [dispatch])
@@ -25,13 +27,16 @@ const Product = () => {
     error ? <div>{error}</div> :
     <div className={styles.main}>
       <div className={styles.grid_elem}><img src={product?.picture} className={styles.picture} /></div>
-      <p className={styles.grid_elem}>
-        <UserInfo
-          picture={product?.user?.profilePicture}
-          name={product?.user?.firstName + '' + product?.user?.lastName}
-          companyName={product?.company?.name}
-        />
-      </p>
+      <div className={styles.grid_elem}>
+        {
+          fetchedConfig.config.hasUserSection && 
+          <UserInfo
+            picture={product?.user?.profilePicture}
+            name={product?.user?.firstName + '' + product?.user?.lastName}
+            companyName={product?.company?.name}
+          />
+        }
+      </div>
       <p className={styles.grid_elem}>
         <span>Title: {product?.name}</span>
         <span>Type: {product?.type?.name}</span>

@@ -1,4 +1,6 @@
-import { PRODUCT_FAILURE, PRODUCT_SUCCESS, PRODUCT_REQUEST, SET_PRODUCT } from '../actions/types';
+import {
+  PRODUCT_FAILURE, PRODUCT_SUCCESS, PRODUCT_REQUEST, SET_PRODUCT,
+} from '../actions/types';
 
 const productReducer = (state = { product: {} }, action) => {
   switch (action.type) {
@@ -7,9 +9,9 @@ const productReducer = (state = { product: {} }, action) => {
     case PRODUCT_SUCCESS:
       return { loading: false, product: action.payload };
     case PRODUCT_FAILURE:
-      return { loading: false, error: action.payload }
+      return { loading: false, error: action.payload };
     case SET_PRODUCT:
-      return { product: action.payload}
+      return { product: action.payload };
     default:
       return state;
   }
