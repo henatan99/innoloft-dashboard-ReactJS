@@ -1,7 +1,7 @@
 import * as Axios from 'axios';
 
 import {
-  PRODUCT_SUCCESS, PRODUCT_FAILURE, PRODUCT_REQUEST, SET_PRODUCT, SET_CONFIG
+  PRODUCT_SUCCESS, PRODUCT_FAILURE, PRODUCT_REQUEST, SET_PRODUCT, SET_CONFIG,
 } from './types';
 
 export const fetchProduct = () => async (dispatch) => {
@@ -33,6 +33,6 @@ export const fetchConfig = (appId) => async (dispatch) => {
     const { data } = await Axios.get(`/configuration/${appId}`);
     dispatch({ type: SET_CONFIG, payload: data });
   } catch (error) {
-    
+
   }
-}
+};

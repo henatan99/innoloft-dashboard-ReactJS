@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import * as Axios from 'axios';
+import { useDispatch } from 'react-redux';
 import Header from './header';
 import styles from './index.module.sass';
 import SideNav from './sideNav';
-import { useDispatch } from 'react-redux';
 import { fetchConfig } from '../../redux/actions';
-import * as env from '../../.env.js'
+import * as env from '../../.env.js';
 
 const Layout = (props) => {
   const dispatch = useDispatch();
@@ -24,6 +24,6 @@ const Layout = (props) => {
       </div>
     </div>
   );
-} 
+};
 
 export default Layout;

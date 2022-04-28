@@ -14,7 +14,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
   productReducer,
-  configReducer
+  configReducer,
 });
 
 const store = createStore(

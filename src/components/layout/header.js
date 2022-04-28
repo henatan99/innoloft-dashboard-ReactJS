@@ -27,7 +27,7 @@ const Header = () => {
   const fetchedConfig = useSelector((state) => state.configReducer);
   const headerStyle = {
     backgroundColor: fetchedConfig.config.mainColor,
-  }
+  };
 
   return (
     <div className={styles.header} style={headerStyle}>
@@ -35,7 +35,6 @@ const Header = () => {
       {/* {logo} */}
     </div>
   );
-}
-
+};
 
 export default Header;

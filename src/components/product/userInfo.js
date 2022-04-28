@@ -7,11 +7,15 @@ const UserInfo = (props) => {
     <div className={styles.user_info}>
       <img src={picture} className={styles.picture} />
       <p>
-        Name: {' '}
+        Name:
+        {' '}
+        {' '}
         {name || ''}
       </p>
       <p>
-        Company Name: {' '}
+        Company Name:
+        {' '}
+        {' '}
         {companyName || ''}
       </p>
     </div>
