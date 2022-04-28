@@ -75,7 +75,6 @@ Give a :star:️ if you like this project!
 ## Acknowledgment 
 
 - Facebook team who created creat-react-app API 
-- [Zeplin project](https://app.zeplin.io/projects)
 
 ## :memo: License
 
